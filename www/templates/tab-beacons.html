@@ -1,0 +1,18 @@
+<ion-view view-title="Beacons">
+  <h2 ng-if="beacons.length===0" class="empty-list" ng-cloak> No Beacons </h2>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-icon-left" ng-repeat="beacon in beacons" type="item-text-wrap">
+        <i ng-class="beacon.type === 'BEACON' ?'ion-bluetooth':'ion-wifi' "class="icon"></i>
+        <h2>{{beacon.workspace.name}}</h2>
+        <p>{{beacon.name}}</p>
+        <p ng-show="beacon.type === 'BEACON'">Major:{{beacon.major}} - Minor: {{beacon.minor}}</p>
+        <p ng-show="beacon.type !== 'BEACON'">{{beacon.manufacturer|beaconType}}: {{beacon.uuid}}</p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

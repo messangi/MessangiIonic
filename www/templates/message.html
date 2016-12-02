@@ -1,0 +1,9 @@
+<ion-view view-title="{{message.subject}}">
+  <ion-nav-buttons side="secondary">
+    <button class="button button-icon ion-compose" ng-click="openDialog(message.clientId)"></button>
+  </ion-nav-buttons>
+  <ion-content class="padding">
+    <ng-bind-html ng-bind-html="message.text">
+    </ng-bind-html>
+  </ion-content>
+</ion-view>

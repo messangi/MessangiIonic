@@ -1,0 +1,31 @@
+<ion-view view-title="Login">
+  {{data}}
+    <ion-content scroll="false">
+        <section class="login-container">
+            <div class = "col header">
+               <img src="./img/ionic.png"/>
+            </div>
+            <div class="body">
+              <form name="signupForm" ng-submit="doLogin(signupForm)" class="list card no-margin" novalidate="">
+                <ion-input class="item item-input item-stacked-label" 
+                  ng-class="{ 'has-errors' : signupForm.email.$invalid && signupForm.$submitted, 
+                        'no-errors' : signupForm.email.$valid && signupForm.$submitted}">
+                  <ion-label >Email</ion-label>
+                  <input type="email" name="email" placeholder="john@doe.com" ng-model="data.email" required>
+                  <div class="error-container" ng-show="signupForm.email.$error && signupForm.$submitted" ng-messages="signupForm.email.$error">
+                    <div class="error" ng-message="required">
+                      <i class="ion-information-circled"></i> Required
+                    </div>
+                    <div class="error" ng-show="signupForm.email.$invalid && !signupForm.email.$pristine">
+                      <i class="ion-information-circled"></i> Not a valid Email
+                    </div>
+                  </div>
+                </ion-input>
+                <ion-input class="item-input noPadding">
+                  <input type="submit" class="button button-positive" value="Create Account" ng-disabled="signupForm.$invalid && signupForm.$submitted">
+                </ion-input>
+              </form>
+            </div>
+        </section>
+    </ion-content>
+</ion-view>

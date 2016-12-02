@@ -1,0 +1,23 @@
+<ion-view view-title="Inbox">
+  <h2 ng-if="messages.length===0" class="empty-list" ng-cloak> No Messages </h2>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-remove-animate item-icon-left item-icon-right" ng-repeat="message in messages track by message.id" type="item-text-wrap" href="#/tab/inbox/{{message.id}}">
+        <i ng-class="getClass(message)" class="icon"></i>
+        <span class="item-note">
+            {{message.date|relativeDate}}
+        </span>
+        <h2>{{message.workspace.name}}</h2>
+        <p>{{message.subject}}</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+        <ion-option-button class="button-assertive" ng-click="remove(message)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

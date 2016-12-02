@@ -1,0 +1,22 @@
+<ion-view view-title="Geofences">
+  <h2 ng-if="geofences.length===0" class="empty-list" ng-cloak> No Geofences </h2>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+      <ion-item class="item-icon-left" ng-repeat="geofence in geofences" type="item-text-wrap">
+        <i ng-class="getClass(geofence)" class="icon"></i>
+        <span class="item-note">
+            {{getStatus(geofence)}}
+        </span>
+        <h2>{{geofence.workspace.name}}</h2>
+        <p>
+            {{geofence.name}}<br/>
+            Distance: {{geofence.distance|number:2}}m - Radius: {{geofence.radius}}m
+        </p>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

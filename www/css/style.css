@@ -1,0 +1,99 @@
+/* Empty. Add your own CSS if you like */
+.icon.status{
+    font-size: xx-large;
+}
+
+
+.empty-list{
+    color: #AAA;
+    font-size: -webkit-xxx-large;
+    max-width: 400px;
+    width: 80%;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+
+.login-container {
+    display: -webkit-flex;
+    -webkit-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efad62), color-stop(100%,#f7d47c));
+    background: -webkit-linear-gradient(top, #efad62 0%,#f7d47c 100%);
+}
+
+.login-container > .header {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-container > .body{
+    max-width: 350px;
+    width: 80%;
+    margin: 25px auto 0 auto;
+}
+
+.login-container > *{
+    -webkit-flex: 2; /* Safari 6.1+ */
+    -ms-flex: 2; /* IE 10 */ 
+    flex: 2;
+}
+
+.login-container form.card{
+    padding-bottom: 0;
+}
+
+.login-container .noPadding{
+    padding: 0;
+}
+
+/*
+    Form validation CSS
+*/
+ 
+/** Styling for the username field **/
+label.item.has-error {  
+  border-bottom: 2px solid red;
+}
+ 
+/** Styling for the password field when an error exists**/
+.error-container {
+  margin: 0;
+}
+ 
+.error {
+  padding: 8px 8px;
+  font-family: "Arial Black", Gadget, sans-serif;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: #555;
+  vertical-align: middle;
+}
+ 
+.error i {
+  font-size: 24px;
+  color: #B83E2C;  
+  vertical-align: middle;
+}
+ 
+.last-error-container > .error {
+  padding: 10px 16px 0;
+}
+ 
+.has-errors {
+  border-bottom: 1px solid #B83E2C;
+}
+ 
+.no-errors {
+  border-bottom: 2px solid green;
+}

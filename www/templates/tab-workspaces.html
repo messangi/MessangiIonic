@@ -1,0 +1,14 @@
+<ion-view view-title="Workspaces">
+  <h2 ng-if="workspaces.length===0" class="empty-list" ng-cloak> No Workspaces </h2>
+  <ion-content>
+    <ion-refresher
+      pulling-text="Pull to refresh..."
+      on-refresh="doRefresh()">
+    </ion-refresher>
+    <ion-list>
+        <ion-toggle ng-repeat="workspace in workspaces" ng-change="toggleWorkspace(workspace)" ng-model="workspace.subscribed">
+            {{workspace.name}}
+        </ion-toggle>
+    </ion-list>
+  </ion-content>
+</ion-view>
