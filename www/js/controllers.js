@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
       });
     });
   })
-  .controller('BaseCtrl', function($scope, $timeout, $ionicPlatform, $state, $messangi){
+  .controller('BaseCtrl', function($scope, $timeout, $ionicPlatform, $ionicLoading, $state, $messangi){
     $scope.userID = null;
     $ionicPlatform.ready(function(){
 
@@ -60,6 +60,7 @@ angular.module('starter.controllers', [])
             }
           });
         }else{
+          $ionicLoading.hide();
           $state.go('login');
         }
       });
