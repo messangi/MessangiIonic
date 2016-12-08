@@ -24,13 +24,13 @@ Una vez el proyecto y sus dependencias esten listas puede probar en el **Browser
 Ahora debe agregar las plataformas de Android y/o iOS
 
 ```shell
-	$>cordova platform add ios android
+	$>ionic platform add ios android
 ```
 
 y agregar el plugin de messangi, para mas informacion dirigirse a la [documentacion](https://www.npmjs.com/package/cordova-plugin-messangi)
 
 ```shell
-	$>cordova plugin add cordova-plugin-messangi --variable APP_NAME=<Messangi Application Name> --variable PUBLIC_KEY=<Messangi Public Key or Client ID> --variable PRIVATE_KEY=<Messangi Private Key> --variable GCM_API_KEY=<Gcm Api Key> --variable GCM_PROJECT_NUMBER=<GCM Project Number>
+	$>ionic plugin add cordova-plugin-messangi --variable APP_NAME=<Messangi Application Name> --variable PUBLIC_KEY=<Messangi Public Key or Client ID> --variable PRIVATE_KEY=<Messangi Private Key> --variable GCM_API_KEY=<Gcm Api Key> --variable GCM_PROJECT_NUMBER=<GCM Project Number>
 ```
 
 ## Certificados
@@ -54,8 +54,8 @@ Luego de tener el proyecto base funcionando correctamente, ir al directorio base
 |APP_NAME |Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
 |PUBLIC_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
 |PRIVATE_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
-|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:suport@ogangi.com)|SI|ANDROID|
-|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:suport@ogangi.com)|SI|ANDROID|
+|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:support@ogangi.com)|SI|ANDROID|
+|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:support@ogangi.com)|SI|ANDROID|
 |MMC_URL|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
 |MMC_INSTANCE_ID|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
 
