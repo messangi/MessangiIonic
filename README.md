@@ -3,59 +3,35 @@
 ionic es un framework para desarrollo de aplicaciones Híbridas basadas en Angular y Cordova, simplifica mucho 
 el desarrollo de estas aplicaciones y veo conveniente tener como un caso especial como utilizar el plugin de Cordova del SDK en este Framework.
 
-## Antes de comenzar
 
-El proyecto inicial de Ionic en iOS al menos esta roto (nada que incluya el proyecto sino el de demo base que trae) 
+## Inicializando
 
-Segun la documentacion estos son los pasos para tener corriendo un proyecto cordova
-
-```shell
-	$>npm install -g cordova ionic
-	$>ionic start myApp tabs
-	$>cd myApp
-	$>ionic platform add ios
-	$>ionic platform add android
-	$>ionic build ios
-	$>ionic emulate ios
-```
-
-Sin embargo siguiendo esos pasos esto da error, es necesario hacer estos también (dentro del directorio myApp)
-
-```shell
-	$>ionic resources --icon
-	$>ionic state reset
-```
-
-Esto genera todos los iconos y recursos nuevamente y reinstala toda la plataforma y plugins desde 0
-
-Todos son necesarios para poder correr los proyectos de demo.
+Clonar el proyecto en su entorno local
+Luego es necesario descargarse las dependencias principales
 
 ```shell
 	$>npm install -g cordova ionic
-	$>ionic start myApp tabs
-	$>cd myApp
-
-	$>ionic platform rm ios
-	$>ionic platform add ios
-	$>ionic platform add android
-	$>ionic resources --icon
-	$>ionic state reset
-
-	$>ionic prepare
-	$>ionic build
-
-	$>ionic emulate ios
+	$>git clone https://github.com/messangi/MessangiIonic.git
+	$>cd MessangiIonic
+	$>npm install && bower install
 ```
+Una vez el proyecto y sus dependencias esten listas puede probar en el **Browser** el resultado con data de demo con el siguiente comando
 
-Si desea ver el proyecto correr en el **Browser** en lugar de un emulador puede hacerlo con el comando
 ```shell
 	$>ionic serve
 ```
 
+Ahora debe agregar las plataformas de Android y/o iOS
 
-### Opcional
+```shell
+	$>cordova platform add ios android
+```
 
-También puede ser una buena idea modificar el archivo **config.xml** ya modificar el *ID*, recordar que este *ID* es que se debe utilizar en la sección de **CERTIFICADOS** siguiente y es muy importante pues es el que identifica el APP en la plataforma de iOS.
+y agregar el plugin de messangi, para mas informacion dirigirse a la [documentacion](https://www.npmjs.com/package/cordova-plugin-messangi)
+
+```shell
+	$>cordova plugin add cordova-plugin-messangi --variable APP_NAME=<Messangi Application Name> --variable PUBLIC_KEY=<Messangi Public Key or Client ID> --variable PRIVATE_KEY=<Messangi Private Key> --variable GCM_API_KEY=<Gcm Api Key> --variable GCM_PROJECT_NUMBER=<GCM Project Number>
+```
 
 ## Certificados
 ### iOS
@@ -66,17 +42,11 @@ El proceso para Conseguir las credenciales de Google Cloud Messaging (GCM), se d
 
 ## Comenzando con el plugin
 
-Primero es necesario clonar el plugin en algún lugar que se desee
-
-```shell
-	$>git clone <usuario>@git.ogangi.com:/usr/local/gitroot/MessangiCordovaSDK.git
-```
-
 Luego de tener el proyecto base funcionando correctamente, ir al directorio base del proyecto e incluir el plugin agregando las variables necesarias de Messangi
 
 ```shell
 	$>cd <path al proyecto>
-	$>ionic plugin add <path a Messangi plugin> --variable APP_NAME=<Messangi Application Name> --variable PUBLIC_KEY=<Messangi Public Key or Client ID> --variable PRIVATE_KEY=<Messangi Private Key> --variable GCM_API_KEY=<Gcm Api Key> --variable GCM_PROJECT_NUMBER=<GCM Project Number>
+	$>ionic plugin add cordova-plugin-messangi --variable APP_NAME=<Messangi Application Name> --variable PUBLIC_KEY=<Messangi Public Key or Client ID> --variable PRIVATE_KEY=<Messangi Private Key> --variable GCM_API_KEY=<Gcm Api Key> --variable GCM_PROJECT_NUMBER=<GCM Project Number>
 ```
 
 |Variables|Description|Required|Platform|
@@ -121,9 +91,9 @@ El caso de android es mucho mas estable, no se requiere configuraciones especial
 Ya en este punto se debe tener el plugin instalado y listo para su uso, no hay nada más que hacer
 
 ### Utilizando el Service Factory 
-En Ogangi proveemos un Angular Service para utilizar el Plugin de Cordova puedes verlo en el siguiente gist : [MessangiService.js](https://gist.github.com/jmtt89/4294b059c90bb0e32ec8cba25362cf7a)
+En Ogangi proveemos un Angular Service para utilizar el Plugin de Cordova puedes verlo en el siguiente gist : [MessangiService.js](https://gist.github.com/messangi/90f3ec0cb0beae915120a88cfca1a94b)
 
-Luego de agregar este **Factory** solo es necesario agregar **$messangi** en el controller que se desee utilizar alguna de las funciones de Messangi, seguido de la función que se desee utilizar. Para el funcionamiento básico solo es necesario hacer:
+Luego de agregar este **Factory** solo es necesario agregar **$messangi** en el controller que se desee utilizar alguna de las funciones de Messangi, seguido de la función que se desee utilizar. 
 
 ```js
 	$messangi.init()
@@ -131,7 +101,3 @@ Luego de agregar este **Factory** solo es necesario agregar **$messangi** en el 
 ```
 
 Puede acceder a un API con todas las funciones disponibles en el Service Factory en el siguiente link TODO::[$messangi api]() 
-
-Puede ver el proyecto de Ejemplo que hace uso de este Service Factory en el siguiente link TODO::[Ionic Demo]()
-
-## Credenciales utilizadas para esta aplicacione 
