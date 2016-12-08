@@ -39,6 +39,7 @@ angular.module('starter.controllers', [])
           console.log(error);
         }
           $scope.$broadcast('MessangiReady',true);
+          $scope.ready = true;
       });
 
       $messangi.isRegister(function(error, registered){
@@ -127,20 +128,21 @@ angular.module('starter.controllers', [])
     }
 
     $ionicPlatform.ready(function(){
-      onLoad(function(list){
-        $timeout(function(){
-          updateMessageList(list);
-        });
-      });
-
-      $scope.$on('MessangiReady',function(){
+      if($scope.$parent.ready){
         onLoad(function(list){
           $timeout(function(){
             updateMessageList(list);
           });
         });
-      })
-
+      }else{
+        $scope.$on('MessangiReady',function(){
+          onLoad(function(list){
+            $timeout(function(){
+              updateMessageList(list);
+            });
+          });
+        })
+      }
 
       $scope.doRefresh = function() {
         onLoad(function(list){
@@ -291,11 +293,21 @@ angular.module('starter.controllers', [])
     };
 
     $ionicPlatform.ready(function(){
-      onLoad(function(list){
-        $timeout(function(){
-          $scope.geofences = list.slice(0);
+      if($scope.$parent.ready){
+        onLoad(function(list){
+          $timeout(function(){
+            $scope.geofences = list.slice(0);
+          })
+        });
+      }else{
+        $scope.$on('MessangiReady',function(){
+          onLoad(function(list){
+            $timeout(function(){
+              $scope.geofences = list.slice(0);
+            })
+          });
         })
-      });
+      }
 
       $scope.doRefresh = function() {
         onLoad(function(list){
@@ -361,12 +373,23 @@ angular.module('starter.controllers', [])
 
     $ionicPlatform.ready(function(){
 
-      onLoad(function(list){
-        $timeout(function(){
-          $scope.beacons = list.slice(0);
-          $ionicLoading.hide();
+      if($scope.$parent.ready){
+        onLoad(function(list){
+          $timeout(function(){
+            $scope.beacons = list.slice(0);
+            $ionicLoading.hide();
+          })
         })
-      })
+      }else{
+        $scope.$on('MessangiReady',function(){
+          onLoad(function(list){
+            $timeout(function(){
+              $scope.beacons = list.slice(0);
+              $ionicLoading.hide();
+            })
+          })
+        })
+      }
 
       $scope.doRefresh = function() {
         onLoad(function(list){
