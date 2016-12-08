@@ -51,13 +51,13 @@ Luego de tener el proyecto base funcionando correctamente, ir al directorio base
 
 |Variables|Description|Required|Platform|
 |---------|-----------|--------|--------|
-|APP_NAME |Esta variable es enviada a usted por el equipo de Ogangi|SI|ANDROID - iOS|
-|PUBLIC_KEY|Esta variable es enviada a usted por el equipo de Ogangi|SI|ANDROID - iOS|
-|PRIVATE_KEY|Esta variable es enviada a usted por el equipo de Ogangi|SI|ANDROID - iOS|
-|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a Support@ogangi.com|SI|ANDROID|
-|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a Support@ogangi.com|SI|ANDROID|
-|MMC_URL|Esta variable es enviada a usted por el equipo de Ogangi|NO|ANDROID - iOS|
-|MMC_INSTANCE_ID|Esta variable es enviada a usted por el equipo de Ogangi|NO|ANDROID - iOS|
+|APP_NAME |Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
+|PUBLIC_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
+|PRIVATE_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
+|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:suport@ogangi.com)|SI|ANDROID|
+|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:suport@ogangi.com)|SI|ANDROID|
+|MMC_URL|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
+|MMC_INSTANCE_ID|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
 
 * Variables conseguidas en la sección **Certificados** subsección **android**
 
@@ -91,7 +91,7 @@ El caso de android es mucho mas estable, no se requiere configuraciones especial
 Ya en este punto se debe tener el plugin instalado y listo para su uso, no hay nada más que hacer
 
 ### Utilizando el Service Factory 
-En Ogangi proveemos un Angular Service para utilizar el Plugin de Cordova puedes verlo en el siguiente gist : [MessangiService.js](https://gist.github.com/messangi/90f3ec0cb0beae915120a88cfca1a94b)
+Proveemos tambien un Angular Service para utilizar el Plugin de Cordova puedes verlo en el siguiente gist : [MessangiService.js](https://gist.github.com/messangi/90f3ec0cb0beae915120a88cfca1a94b)
 
 Luego de agregar este **Factory** solo es necesario agregar **$messangi** en el controller que se desee utilizar alguna de las funciones de Messangi, seguido de la función que se desee utilizar. 
 
