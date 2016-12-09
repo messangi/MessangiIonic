@@ -54,8 +54,8 @@ Luego de tener el proyecto base funcionando correctamente, ir al directorio base
 |APP_NAME |Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
 |PUBLIC_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
 |PRIVATE_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
-|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:support@ogangi.com)|SI|ANDROID|
-|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro mediante un email a [support@messangi.com](mailto:support@ogangi.com)|SI|ANDROID|
+|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro directamente con el equipo de soporte|SI|ANDROID|
+|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro directamente con el equipo de soporte|SI|ANDROID|
 |MMC_URL|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
 |MMC_INSTANCE_ID|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
 
