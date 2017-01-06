@@ -1,13 +1,12 @@
+## What is IONIC
 
-## Que es IONIC
-ionic es un framework para desarrollo de aplicaciones Híbridas basadas en Angular y Cordova, simplifica mucho 
-el desarrollo de estas aplicaciones y veo conveniente tener como un caso especial como utilizar el plugin de Cordova del SDK en este Framework.
+Ionic is a hybrid application development framework based on Angular and Cordova, it simplifies a lot 
+the development of such applications and it's important to know the usage of Cordova SDK in this Framework
 
+## Initializing
 
-## Inicializando
-
-Clonar el proyecto en su entorno local
-Luego es necesario descargarse las dependencias principales
+Clone the project in your local environment
+Then, it's requeried to download the main dependencies.
 
 ```shell
 	$>npm install -g cordova ionic
@@ -15,34 +14,42 @@ Luego es necesario descargarse las dependencias principales
 	$>cd MessangiIonic
 	$>npm install && bower install
 ```
-Una vez el proyecto y sus dependencias esten listas puede probar en el **Browser** el resultado con data de demo con el siguiente comando
+Once the project and its dependencies are ready you can test in the **Browser** the result with demo data with the following command:
 
 ```shell
 	$>ionic serve
 ```
 
-Ahora debe agregar las plataformas de Android y/o iOS
+Now you have to add the plaforms Android and iOS
 
 ```shell
 	$>ionic platform add ios android
 ```
 
-y agregar el plugin de messangi, para mas informacion dirigirse a la [documentacion](https://www.npmjs.com/package/cordova-plugin-messangi)
+and add the messangi plugin, for more information go to the [documentation](https://www.npmjs.com/package/cordova-plugin-messangi)
 
 ```shell
 	$>ionic plugin add cordova-plugin-messangi --variable APP_NAME=<Messangi Application Name> --variable PUBLIC_KEY=<Messangi Public Key or Client ID> --variable PRIVATE_KEY=<Messangi Private Key> --variable GCM_API_KEY=<Gcm Api Key> --variable GCM_PROJECT_NUMBER=<GCM Project Number>
 ```
 
-## Certificados
+## Certificates
+
 ### iOS
-En iOS para poder recibir notificaciones push es necesario hacer una gran cantidad de cosas para generar los certificados correspondientes, este proceso es largo y se explica en el siguiente link [Certificados IOS](https://www.messangi.com/documentation/doku.php?id=sdk:ios_certs) esto es **necesario** para poder continuar ya que la idea del Plugin es la recepción de notificaciones push.
+
+In iOS to be able to get push notifications you have to follow a long and strict steps list, explained in the following link: [Certificados IOS](https://www.messangi.com/documentation/doku.php?id=sdk:ios_certs).
+
+The certificates are **mandatory** to enable the Push Notifications feature in iOS, so you have to be careful to generate them properly.
 
 ### Android
-El proceso para Conseguir las credenciales de Google Cloud Messaging (GCM), se debe seguir la guia que proporcionamos para ello en el siguiente link [GCM - Credentials](https://www.messangi.com/documentation/doku.php?id=sdk:android_keys) esto es **necesario** para poder continuar ya que la idea del Plugin es la recepción de notificaciones push.
 
-## Comenzando con el plugin
+In order to get the credentials in Google Cloud Messaging (GCM), you must follow our guide in this link: [GCM - Credentials](https://www.messangi.com/documentation/doku.php?id=sdk:android_keys)
 
-Luego de tener el proyecto base funcionando correctamente, ir al directorio base del proyecto e incluir el plugin agregando las variables necesarias de Messangi
+The credentials in GCM are mandatory to enable the Push Notifications feature in Android, so you have to be careful to generate them properly.
+
+## Getting started with the plugin
+
+After having base project set and working properly, go to the base project directory and include the plugin adding the neccesary variables for Messangi.
+
 
 ```shell
 	$>cd <path al proyecto>
@@ -51,28 +58,28 @@ Luego de tener el proyecto base funcionando correctamente, ir al directorio base
 
 |Variables|Description|Required|Platform|
 |---------|-----------|--------|--------|
-|APP_NAME |Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
-|PUBLIC_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
-|PRIVATE_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
-|GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro directamente con el equipo de soporte|SI|ANDROID|
-|GCM_PROJECT_NUMBER|Esta variable debe conseguirla mediante GCM* y solicitar su registro directamente con el equipo de soporte|SI|ANDROID|
-|MMC_URL|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
-|MMC_INSTANCE_ID|Esta variable es enviada a usted por el equipo de Messangi|NO|ANDROID - iOS|
+|APP_NAME |This variable is sent to you from the Ogangi Team|YES|ANDROID - iOS|
+|PUBLIC_KEY|This variable is sent to you from the Ogangi Team|YES|ANDROID - iOS|
+|PRIVATE_KEY|This variable is sent to you from the Ogangi Team|YES|ANDROID - iOS|
+|GCM_API_KEY|This variable is found with GCM* and you have to request your registration through emailing to support@ogangi.com|YES|ANDROID|
+|GCM_PROJECT_NUMBER|This variable is found with GCM* and you have to request your registration through emailing to support@ogangi.com|YES|ANDROID|
+|MMC_URL|This variable is sent to you from the Ogangi Team|NO|ANDROID - iOS|
+|MMC_INSTANCE_ID|This variable is sent to you from the Ogangi Team|NO|ANDROID - iOS|
 
-* Variables conseguidas en la sección **Certificados** subsección **android**
 
+* Variables found in **Certificates** section, **Android** subsection.
 
 ----------
-## Utilizando los IDE's Oficiales 
+## Using Offcial IDE's 
 
-En nuestra experiencia ionic aún no es autosuficiente, esto quiere decir aún hay cosas que hacer a mano como agregar configuraciones, por lo que es necesario abrir con xCode el proyecto generado luego del **ionic build**.
+In our experience Ionic is not self-sufficient, it means there's yet things to do by hand, such as adding settings, so it's necessary to open with Xcode the generated project after **ionic build**.
 
-### IOS
-En xCode hacer click sobre **open another project** y luego buscar el proyecto generado anteriormente, luego ir al directorio **platforms > ios** y abrir el que tenga la extensión **.xcworkspace**
+### iOS
+In Xcode click on **Open another project** and then look for the previously generated project, then go to the **platforms > ios** directory and open the one with **.xcworkspace** extension. 
 
-Una vez abierto el proyecto en xCode, seleccionar la base del proyecto ( El nombre del proyecto en el panel izquierdo ), en la sección derecha, está seleccionada la pestaña **General**, en esta pestaña se encuentra el **Bundle Identifier**, este es el mismo referenciado desde el archivo **config.xml** es recomendable no modificar esto en xCode sino en el **config.xml** y luego hacer nuevamente el comando **ionic build ios**. En esta pestaña también está la información de signin y deploy.
+Once opened the project in Xcode, select the project root (project name in the left panel), in the right section, it's chosen the tab **General**, in that tab is located the **Bundle Identifier**, this is the same referenced from the **config.xml** file, it's suggestable not to modify that in Xcode but in the file itself and then run again the command **ionic build ios**. In that tab is also the information for signing and deployment.
 
-En la pestaña **Capabilities** deben encenderse por lo menos las siguientes: 
+In the **Capabilities** tab must be checked at least the following:
 
 - Push Notifications
 - Background Modes
@@ -82,22 +89,24 @@ En la pestaña **Capabilities** deben encenderse por lo menos las siguientes:
 	- Remote notifications
 - Associated Domains 	
 
-**Nota:** Cualquier error que aparezca en este punto puede ser responsable de algún error cuando se genero el certificado.
+**Note:** Any error shown in this point could be caused by any error in certificate generation.
 
 ### Android
-El caso de android es mucho mas estable, no se requiere configuraciones especiales, pero si igualmente desea abrir el proyecto en **Android Studio** puede hacerlo sin problema solo seleccione **file > Open...** en Android Studio busque la carpeta **platforms** seleccione **android** y de clic en **aceptar**.
 
-## Configurando el Plugin
-Ya en este punto se debe tener el plugin instalado y listo para su uso, no hay nada más que hacer
+Android case is much more stable, it doesn't require special configurations, but if you really want to open the project in **Android Studio** you can do it without trouble by only selecting **File > Open...** in the menus and look for the **Platforms** folder, select **Android** and click in **OK**.
 
-### Utilizando el Service Factory 
-Proveemos tambien un Angular Service para utilizar el Plugin de Cordova puedes verlo en el siguiente gist : [MessangiService.js](https://gist.github.com/messangi/90f3ec0cb0beae915120a88cfca1a94b)
+## Configurating plugin
 
-Luego de agregar este **Factory** solo es necesario agregar **$messangi** en el controller que se desee utilizar alguna de las funciones de Messangi, seguido de la función que se desee utilizar. 
+In this point you should have the plugin installed and ready to use, there's nothing more to do. 
+
+### Using Service Factory
+
+We also provide an Angular Service to use the Cordova plugin, it can be checked in the following gist : [MessangiService.js](https://gist.github.com/messangi/90f3ec0cb0beae915120a88cfca1a94b)
+
+After adding this **Factory**, it's just necessary to add **$messangi** in the controller where you are wanting to use some Messangi functionalities, followed by the function you want to use.
 
 ```js
 	$messangi.init()
 	$messangi.register()
 ```
-
-Puede acceder a un API con todas las funciones disponibles en el Service Factory en el siguiente link TODO::[$messangi api]() 
+You can access to an API with all functions available in the Service Factory in the following link TODO::[$messangi api]() 
