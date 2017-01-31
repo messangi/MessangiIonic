@@ -51,7 +51,7 @@ Luego de tener el proyecto base funcionando correctamente, ir al directorio base
 
 |Variables|Description|Required|Platform|
 |---------|-----------|--------|--------|
-|APP_NAME |Esta variable es enviada por usted al equipo de Messangi|SI|ANDROID - iOS|
+|APP_NAME |Esta variable debe ser enviada por usted al equipo de Messangi|SI|ANDROID - iOS|
 |PUBLIC_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
 |PRIVATE_KEY|Esta variable es enviada a usted por el equipo de Messangi|SI|ANDROID - iOS|
 |GCM_API_KEY|Esta variable debe conseguirla mediante GCM* y solicitar su registro directamente con el equipo de soporte|SI|ANDROID|
