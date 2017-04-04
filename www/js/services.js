@@ -78,6 +78,9 @@ angular.module('starter.services', [])
   }
 
   return {
+    get Priority(){
+        return $window.plugins && $window.plugins.Messangi && $window.plugins.Messangi.Priority
+    },
     init: function(callback){
       function handlerSuccess(list){
         list.forEach(function(workspace){
@@ -118,6 +121,38 @@ angular.module('starter.services', [])
             subscribed:"YES"
           }
         ])     
+    },
+    setLocationPriority: function(priority){
+      if($window.plugins && $window.plugins.Messangi){
+        var priorityCode;
+        var valid = true;
+        if(!$window.plugins.Messangi.Priority[priority]){
+          valid = false;
+          for (var key in $window.plugins.Messangi.Priority) {
+            if ($window.plugins.Messangi.Priority.hasOwnProperty(key)) {
+              valid = ($window.plugins.Messangi.Priority[key] == priority);
+              if(valid){
+                priorityCode = priority;
+                break;
+              }
+            }
+          }
+        } else {
+          priorityCode = $window.plugins.Messangi.Priority[priority];
+        }
+
+        if(priorityCode){
+          $window.plugins.Messangi.setLocationPriority(priorityCode);
+        }
+
+      }
+    },
+    setLocationInterval: function(interval){
+      if($window.plugins && $window.plugins.Messangi){
+        if(interval && interval >= 0){
+          $window.plugins.Messangi.setLocationInterval(interval);
+        }
+      }
     },
     isRegister: function(callback){
       function handlerSuccess(valid){
@@ -556,6 +591,18 @@ angular.module('starter.services', [])
 
       if($window.plugins && $window.plugins.Messangi)
         $window.plugins.Messangi.onPushReceived(handlerSuccess,handlerError);
+    },
+    onGeofenceTriggered: function(callback){
+      function handlerSuccess(geofence){
+        callback(null, geofence);
+      };
+
+      function handlerError(error){
+        callback(error,null);
+      }
+      if($window.plugins && $window.plugins.Messangi)
+        $window.plugins.Messangi.onGeofenceTriggered(handlerSuccess,handlerError);
+
     },
     listGeofences: function(callback){
       function handlerSuccess(list){

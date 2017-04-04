@@ -34,12 +34,17 @@ angular.module('starter.controllers', [])
     $scope.userID = null;
     $ionicPlatform.ready(function(){
 
+      $messangi.setLocationPriority($messangi.Priority.PRIORITY_HIGH_ACCURACY);
+      $messangi.setLocationInterval(1000);
+
       $messangi.init(function(error){
         if(error){
           console.log(error);
         }
-          $scope.$broadcast('MessangiReady',true);
-          $scope.ready = true;
+        $messangi.setLocationPriority($messangi.Priority.PRIORITY_HIGH_ACCURACY);
+        $messangi.setLocationInterval(1000);
+        $scope.$broadcast('MessangiReady',true);
+        $scope.ready = true;
       });
 
       $messangi.isRegister(function(error, registered){
@@ -69,6 +74,11 @@ angular.module('starter.controllers', [])
         if(!error){
           $scope.$broadcast('locationChange', coordinates);
         }
+      })
+
+      $messangi.onGeofenceTriggered(function(error,geofence){
+        console.log(error);
+        console.log(geofence);
       })
     });
   })
