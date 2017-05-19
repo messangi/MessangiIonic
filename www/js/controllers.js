@@ -34,15 +34,24 @@ angular.module('starter.controllers', [])
     $scope.userID = null;
     $ionicPlatform.ready(function(){
 
-      $messangi.setLocationPriority($messangi.Priority.PRIORITY_HIGH_ACCURACY);
-      $messangi.setLocationInterval(1000);
-
       $messangi.init(function(error){
         if(error){
           console.log(error);
         }
+
         $messangi.setLocationPriority($messangi.Priority.PRIORITY_HIGH_ACCURACY);
-        $messangi.setLocationInterval(1000);
+        $messangi.setLocationInterval(30000);
+
+        $messangi.usePowerSaver(false);
+        $messangi.useAndroidLScanner(true);
+        $messangi.useTrackingCache(true);
+        $messangi.setBeaconExitPeriod(120000)
+        $messangi.useRegionPersistence(true)
+        $messangi.autoSetScanMode(false);
+        $messangi.useForegroundScanMode();
+        $messangi.setForegroundScanCycles(1500, 2000);
+        $messangi.setBackgroundScanCycles(5000, 10000);
+
         $scope.$broadcast('MessangiReady',true);
         $scope.ready = true;
       });

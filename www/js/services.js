@@ -844,6 +844,62 @@ angular.module('starter.services', [])
           callback(error,null);
         }
       })
+    },
+    usePowerSaver: function(enable){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.usePowerSaver(!!enable);
+      }
+    },
+    useAndroidLScanner: function(enable){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.useAndroidLScanner(!!enable);
+      }
+    },
+    useTrackingCache: function(enable){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.useTrackingCache(!!enable);
+      }
+    },
+    setBeaconExitPeriod: function(toExitPeriot){
+      if($window.plugins && $window.plugins.Messangi){
+        if(toExitPeriot && toExitPeriot >= 0){
+          $window.plugins.Messangi.setBeaconExitPeriod(toExitPeriot);
+        }
+      }
+    },
+    useRegionPersistence: function(enable){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.useRegionPersistence(!!enable);
+      }
+    },
+    autoSetScanMode: function(enable){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.autoSetScanMode(!!enable);
+      }
+    },
+    useBackgroundScanMode: function(){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.useBackgroundScanMode();
+      }
+    },
+    useForegroundScanMode: function(){
+      if($window.plugins && $window.plugins.Messangi){
+        $window.plugins.Messangi.useForegroundScanMode();
+      }
+    },
+    setForegroundScanCycles: function(scanPeriod, sleepPeriod){
+      if($window.plugins && $window.plugins.Messangi){
+        if(scanPeriod && scanPeriod >= 0 && sleepPeriod && sleepPeriod >= 0){
+          $window.plugins.Messangi.setForegroundScanCycles(scanPeriod, sleepPeriod);
+        }
+      }
+    },
+    setBackgroundScanCycles: function(scanPeriod, sleepPeriod){
+      if($window.plugins && $window.plugins.Messangi){
+        if(scanPeriod && scanPeriod >= 0 && sleepPeriod && sleepPeriod >= 0){
+          $window.plugins.Messangi.setBackgroundScanCycles(scanPeriod, sleepPeriod);
+        }
+      }
     }
   };
 }])
